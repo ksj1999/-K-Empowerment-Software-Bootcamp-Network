@@ -10,7 +10,7 @@ import java.nio.channels.ReadableByteChannel;
 public class Day21 {
     public static void main(String[] args) {
         try {
-            URL url = new URL("http://www.naver.com");
+            URL url = new URL("http://www.inha.ac.kr");
             URLConnection urlConnection = url.openConnection();
             BufferedReader br = new BufferedReader(
                     new InputStreamReader(urlConnection.getInputStream())

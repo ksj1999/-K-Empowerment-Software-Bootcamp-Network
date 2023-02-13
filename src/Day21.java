@@ -1,21 +1,30 @@
-import java.net.InetAddress;
-import java.net.UnknownHostException;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.*;
+import java.nio.ByteBuffer;
+import java.nio.channels.Channels;
+import java.nio.channels.ReadableByteChannel;
 
 public class Day21 {
     public static void main(String[] args) {
-        try{
-        InetAddress addr = InetAddress.getByName("www.inha.ac.kr");
-            //InetAddress addr = InetAddress.getByName("www.inha.ac.kr");
-            System.out.println(addr);
-            System.out.println(addr.getCanonicalHostName());
-            System.out.println(addr.getHostAddress());
-            System.out.println(addr.getHostName());
-
+        try {
+            URL url = new URL("http://www.naver.com");
+            URLConnection urlConnection = url.openConnection();
+            BufferedReader br = new BufferedReader(
+                    new InputStreamReader(urlConnection.getInputStream())
+            );
+            String line;
+            while ((line = br.readLine()) != null) {
+                System.out.println(line);
+            }
+            br.close();
+        } catch (MalformedURLException e) {
+            throw new RuntimeException(e);
+            // Handle exceptions
+        } catch (IOException ex){
 
         }
-        catch (UnknownHostException e){
-            //throw new RunTimeException;
-            System.out.println("해당 URL은 존재하지 않습니다");
-        }
-}
+    }
 }

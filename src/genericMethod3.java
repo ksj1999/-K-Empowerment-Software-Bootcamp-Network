@@ -1,4 +1,3 @@
-import org.w3c.dom.ls.LSOutput;
 
 class Soldier implements Comparable{
     String name;
@@ -17,19 +16,21 @@ class Soldier implements Comparable{
 }
 
 public class genericMethod3 {
-    public static <T extends Comparable> int countSolider(T[] arr, T a){
+    public static <T extends Comparable> int countSoldier(T[] arr, T a) {
         int count = 0;
-        for(T ar : arr)
-            if(ar.compareTo(a) == 1)
-                count ++;
+        for (T ar : arr)
+            if (ar.compareTo(a) == 1)
+                count++;
     return count;
     }
-    public static void main(String[] args) {
-        Soldier[] s = {new Soldier("박민석", "일병"), new Soldier("성윤모", "이병"),
-                new Soldier("차병호", "이병"), new Soldier("김상훈", "상병"),
-                    new Soldier("최일구", "병장")};
 
-        System.out.println("분대에 이병 인원은" + countSolider(s, new Soldier("김아무개", "이병")) + "명 입니다.");
+    public static void main(String[] args) {
+        Soldier[] s =  { new Soldier("박민석", "일병"), new Soldier("성윤모", "이병"),
+                new Soldier("차병호", "이병"), new Soldier("김상훈", "상병")
+                , new Soldier("최일구", "병장")};
+
+        System.out.println("분대에 이병 인원은" + countSoldier(s, new Soldier("김아무개", "이병")) + "명 입니다.");
+
     }
 
 }

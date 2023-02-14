@@ -13,11 +13,8 @@ public class echoServer {
             Socket clientSocket = serverSocket.accept();  // 접속 대기
             System.out.println("클라이언트 접속됨.");
 
-            BufferedReader br = null;
-            PrintWriter pw = null;
-            try {
-                br = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
-                pw = new PrintWriter(clientSocket.getOutputStream(), true);
+            try (BufferedReader br = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+                 PrintWriter pw = new PrintWriter(clientSocket.getOutputStream(), true)) {
                 String line;
                 while ((line = br.readLine()) != null) {
                     System.out.println("클라이언트로 부터 받은 메세지 : " + line);
@@ -25,9 +22,6 @@ public class echoServer {
                 }
             } catch (IOException e) {
                 throw new RuntimeException(e);
-            } finally {
-                br.close();
-                pw.close();
             }
         }
         catch (IOException ex) {

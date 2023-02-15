@@ -1,3 +1,8 @@
+import pokemon.Ggoboogi;
+import pokemon.Pairi;
+import pokemon.Pikachu;
+import pokemon.Pokemon;
+
 import java.util.Scanner;
 public class day20 {
     public static void main(String[] args) {

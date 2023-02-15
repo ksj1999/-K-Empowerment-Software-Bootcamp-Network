@@ -1,17 +1,18 @@
-import java.util.Arrays;
-import java.util.Iterator;
+
 import java.util.List;
+import java.util.stream.Stream;
 
 public class StreamDemo01 {
-
     public static void main(String[] args) {
-        List<String> cities = Arrays.asList(
-                "서울", "부산", "광주", "대구", "부산", "서울", "대전", "대구", "서울", "경기");
-        Iterator<String> it = cities.iterator();
-        while(it.hasNext()){
-            String city = it.next();
-            System.out.print(city + " ");
-         }
-    }
 
+        Stream<String> s1;
+        List<String> names = List.of("홍길동", "배장화", "임꺽정", "연흥부", "김선달", "황진이");
+        s1 = names.stream();
+        s1.filter(n->n.charAt(0) < '이').forEach(n-> System.out.print(n + " "));
+
+
+
+    }
 }
+
+

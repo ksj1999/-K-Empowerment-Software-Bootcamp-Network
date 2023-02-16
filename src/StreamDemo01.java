@@ -10,7 +10,7 @@ public class StreamDemo01 {
         s1 = names.stream();
         s1.filter(n->n.charAt(0) < '이').forEach(n-> System.out.print(n + " "));
 
-
+        
 
     }
 }
